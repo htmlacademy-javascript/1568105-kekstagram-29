@@ -1,32 +1,41 @@
 // Функция для проверки длины строки
-// function lengthCheck (str, lettersLimit) {
-//   if (str.length < lettersLimit) {
-//     console.log('Cтрока короче 20 символов', true)
-//   } else if (str.length === lettersLimit) {
-//     console.log('Длина строки ровно 18 символов', true)
-//   } else if (str.length >= lettersLimit) {
-//     console.log('Строка длиннее 10 символов', false)
-//   }
-//   console.log(str.length);
-// }
+const checkLength = (str, lettersLimit) => str.length <= lettersLimit;
 
-// lengthCheck('проверяемая строка', 10);
+// console.log(checkLength('проверяемая строка', 10));
+
 
 
 // Функция для проверки строки на палиндром
-// function isPalindrome(str) {
-//   let editedStr = str.replaceAll(' ', '').toLowerCase();
-//   let newStr = '';
+const isPalindrome = (str) => {
+  let editedStr = str.replaceAll(' ', '').toLowerCase();
+  let newStr = '';
 
-//   for (let i = editedStr.length - 1; i >= 0; i--) {
-//     newStr += editedStr[i];
-//   }
+  for (let i = editedStr.length - 1; i >= 0; i--) {
+    newStr += editedStr[i];
+  }
+  return editedStr === newStr;
+}
 
-//   if (editedStr === newStr) {
-//     console.log('Палиндром');
-//   } else {
-//     console.log('Не палиндром');
-//   }
-// }
+// console.log(isPalindrome('Лёша на полке клопа нашёл ') ? 'Палиндром' : 'Не палиндром');
 
-// isPalindrome('Лёша на полке клопа нашёл ')
+
+// Функция возвращающая целые положительные числа
+const returnIntegers = (str) => {
+  let newString = '';
+
+  str = str.toString();
+
+  for (let i = 0; i < str.length; i++) {
+    newString += !Number.isNaN(parseInt(str[i], 10)) ? parseInt(str[i], 10) : '';
+  }
+
+  return parseInt(newString, 10);
+}
+// console.log(returnIntegers('2023 год'));
+// console.log(returnIntegers('ECMAScript 2022'));
+// console.log(returnIntegers('1 кефир, 0.5 батона'));
+// console.log(returnIntegers('агент 007'));
+// console.log(returnIntegers('а я томат'));
+// console.log(returnIntegers(2013));
+// console.log(returnIntegers(-1));
+// console.log(returnIntegers(1.5));
