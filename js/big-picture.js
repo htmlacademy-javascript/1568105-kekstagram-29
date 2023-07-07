@@ -88,3 +88,5 @@ function onClickEsc(evt) {
 };
 
 export { openBigPicture };
+
+//<<<
