@@ -99,3 +99,5 @@ function onClickOutside(evt) {
 }
 
 export { openBigPicture };
+
+//<<<
