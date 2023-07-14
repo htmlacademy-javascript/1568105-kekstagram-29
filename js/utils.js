@@ -23,4 +23,11 @@ const createRandomIdFromRangeGenerator = (min, max) => {
   };
 };
 
-export {getRandomInteger, createRandomIdFromRangeGenerator};
+//
+const checkLength = (str, lettersLimit) => str.length <= lettersLimit;
+
+export {
+  getRandomInteger,
+  createRandomIdFromRangeGenerator,
+  checkLength
+};
