@@ -13,6 +13,12 @@ const MAX_AVATAR = 6;
 
 const COMMENTS_DOSE = 5;
 
+const MAX_DESCRIPTION_LENGTH = 140;
+
+const MAX_HASHTAGS_VOLUME = 5;
+
+const HASHTAG_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i; // Циркумфлекс
+
 const DESCRIPTIONS = [
   'Утро',
   'Учебный процесс',
@@ -58,5 +64,8 @@ export {
   DESCRIPTIONS,
   MESSAGES,
   NAMES,
-  COMMENTS_DOSE
+  COMMENTS_DOSE,
+  MAX_DESCRIPTION_LENGTH,
+  MAX_HASHTAGS_VOLUME,
+  HASHTAG_SYMBOLS
 };

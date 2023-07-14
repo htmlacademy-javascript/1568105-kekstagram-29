@@ -93,11 +93,9 @@ function onClickEsc(evt) {
 }
 
 function onClickOutside(evt) {
-  if(evt.target.classList.contains('overlay')) {
+  if (evt.target.classList.contains('overlay')) {
     closeBigPicture();
   }
 }
 
 export { openBigPicture };
-
-//<<<
