@@ -450,6 +450,16 @@ main {
   border-radius: 50% 0 0 50%;
 }
 
+.scale__control--smaller:disabled {
+  /* background-color: red; */
+  transform: none;
+  opacity: 0.7;
+}
+
+.scale__control--smaller:disabled:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .scale__control--smaller::before {
   content: "–";
   position: absolute;
@@ -477,6 +487,16 @@ main {
 
 .scale__control--bigger {
   border-radius: 0 50% 50% 0;
+}
+
+.scale__control--bigger:disabled {
+  /* background-color: red; */
+  transform: none;
+  opacity: 0.7;
+}
+
+.scale__control--bigger:disabled:hover {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .scale__control--bigger::before {
