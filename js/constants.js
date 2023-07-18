@@ -19,6 +19,10 @@ const MAX_HASHTAGS_VOLUME = 5;
 
 const HASHTAG_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i; // Циркумфлекс
 
+const SCALE_STEP = 25;
+const MAX_SCALE = 100;
+const MIN_SCALE = 25;
+
 const DESCRIPTIONS = [
   'Утро',
   'Учебный процесс',
@@ -67,5 +71,8 @@ export {
   COMMENTS_DOSE,
   MAX_DESCRIPTION_LENGTH,
   MAX_HASHTAGS_VOLUME,
-  HASHTAG_SYMBOLS
+  HASHTAG_SYMBOLS,
+  SCALE_STEP,
+  MAX_SCALE,
+  MIN_SCALE
 };

@@ -1,4 +1,6 @@
-import { validateForm } from "./validation.js";
+import { validateForm } from './validation.js';
+import { resetScale } from './scale.js';
+import { resetEffects } from './effects.js';
 
 const uploadControl = document.querySelector('.img-upload__input');
 const uploadModal = document.querySelector('.img-upload__overlay');
@@ -21,6 +23,8 @@ const showModal = () => {
   renderPreviewImage();
   document.addEventListener('keydown', onClickEsc);
   uploadModal.addEventListener('click', onClickOutside);
+  resetScale();
+  resetEffects();
 };
 
 const closeModal = () => {

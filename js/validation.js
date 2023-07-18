@@ -1,9 +1,9 @@
-import { checkLength } from "./utils.js";
+import { checkLength } from './utils.js';
 import {
   MAX_DESCRIPTION_LENGTH,
   MAX_HASHTAGS_VOLUME,
   HASHTAG_SYMBOLS
-} from "./constants.js";
+} from './constants.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const hashtagsField = document.querySelector('.text__hashtags');
@@ -20,7 +20,7 @@ const pristine = new Pristine(
   true
 );
 
-const getTagsArray = (value) => value.replace(/ +/g, ' ').trim().toLowerCase().split(' ');
+const getTagsArray = (value) => value.replace(/ +/g, ' ').trim().toLowerCase().split(' '); // <<<
 
 // макс количество символов в описании
 const validateDescription = (value) => checkLength(value, MAX_DESCRIPTION_LENGTH);
@@ -45,7 +45,7 @@ pristine.addValidator(
 // правильность заполнения поля хештегов
 const validateHashtag = (value) => {
   const tags = getTagsArray(value);
-  return !tags.some((tag) => !HASHTAG_SYMBOLS.test(tag));
+  return !value.length ? true : !tags.some((tag) => !HASHTAG_SYMBOLS.test(tag));
 };
 
 pristine.addValidator(
