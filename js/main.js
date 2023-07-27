@@ -1,8 +1,12 @@
-import { getPhotos } from './data.js';
-import { PHOTOS } from './constants.js';
+import { getPhotos } from './api.js';
 import { renderThumbnail } from './thumbnail.js';
 
 import './form.js';
-import './scale.js';
+getPhotos()
+  .then((photos) => {
+    renderThumbnail(photos);
+    // показать перламутровые пуговицы
+  });
 
-renderThumbnail(getPhotos(PHOTOS));
+// удалить data.js, functions.js, tasks.js
+// почистить константы

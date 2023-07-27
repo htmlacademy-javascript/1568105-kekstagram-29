@@ -490,7 +490,6 @@ main {
 }
 
 .scale__control--bigger:disabled {
-  /* background-color: red; */
   transform: none;
   opacity: 0.7;
 }
@@ -728,6 +727,21 @@ main {
   color: #000000;
 
   border-radius: 5px;
+}
+
+.form__error {
+  display: inline-block;
+  padding: 10px 12px;
+  color: #FFFF00;
+  background-color: #FF4500;
+  border-radius: 4px;
+  letter-spacing: 0.4px;
+  border: 1px solid #FFFF00;
+}
+
+.text__hashtags + .form__error {
+  margin-top: 0;
+  margin-bottom: 22px;
 }
 
 
@@ -1252,13 +1266,21 @@ main {
   font-size: 20px;
   color: #ffe753;
 
-  background-color: #3c3614;
   border-radius: 10px;
+}
+
+.error__inner {
+  outline: 6px dotted #ffe753;
+  outline-offset: -19px;
+  background:
+    radial-gradient(rgba(255, 57, 0, 0.1),rgba(255, 57, 0, 1.0)),
+    url("../photos/4.jpg") center left / 117% no-repeat;
 }
 
 .success__inner {
   padding: 100px 20px;
   padding-bottom: 75px;
+  background-color: #3c3614;
 }
 
 .error__title {
@@ -1427,4 +1449,53 @@ main {
 
 .hidden {
   display: none;
+}
+
+.somethingWrong {
+  position: relative;
+  transition: ease-in-out;
+  animation-duration: 0.5s;
+  /* animation-name: slide-in; */
+}
+
+.somethingWrong:before {
+  position: absolute;
+  content: '!';
+  top: 6px;
+  left: 30px;
+  width: 36px;
+  height: 36px;
+  font-size: 33px;
+  line-height: 35px;
+  font-weight: bold;
+  border-radius: 50%;
+  color: #ff0000;
+  background-color: #ffffff;
+}
+
+.somethingWrong:after {
+  position: absolute;
+  content: '!';
+  top: 6px;
+  right: 30px;
+  width: 36px;
+  height: 36px;
+  font-size: 33px;
+  line-height: 35px;
+  font-weight: bold;
+  border-radius: 50%;
+  color: #ff0000;
+  background-color: #ffffff;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 1;
+    top: -100px;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }

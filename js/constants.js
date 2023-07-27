@@ -23,38 +23,18 @@ const SCALE_STEP = 25;
 const MAX_SCALE = 100;
 const MIN_SCALE = 25;
 
-const DESCRIPTIONS = [
-  'Утро',
-  'Учебный процесс',
-  'Котик энд френдз',
-  'После цунами',
-  'Пантонный мост через Понтар',
-  '11000 метров над Землёй',
-  'Остров Пасхи',
-  'Панорама',
-  'Пейзаж',
-  'Чёткая композиция',
-  'Картина маслом',
-  'Снег с дождём',
-  'Тихий солнечный осенний день'
-];
+const POST_DATA_URL = 'https://28.javascript.pages.academy/kekstagram';
+const GET_DATA_URL = 'https://28.javascript.pages.academy/kekstagram/data';
 
-const MESSAGES = [
-  'Всё отлично!',
-  'В целом всё неплохо. Но не всё.',
-  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
-  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
-  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
-];
+const THEN_MESSAGE = 'Что то пошло не так';
+const CATCH_MESSAGE = 'Что то пошло совсем не так';
 
-const NAMES = [
-  'Виктория',
-  'Иван',
-  'Вадим',
-  'Елена',
-  'Кирилл'
-];
+const ALERT_SHOW_TIME = 5000;
+
+const SubmitButtonText = {
+  IDLE: 'Опубликовать',
+  SUBMITTING: 'Публикую...'
+};
 
 export {
   PHOTOS,
@@ -65,14 +45,17 @@ export {
   COMMENTS,
   MIN_AVATAR,
   MAX_AVATAR,
-  DESCRIPTIONS,
-  MESSAGES,
-  NAMES,
   COMMENTS_DOSE,
   MAX_DESCRIPTION_LENGTH,
   MAX_HASHTAGS_VOLUME,
   HASHTAG_SYMBOLS,
   SCALE_STEP,
   MAX_SCALE,
-  MIN_SCALE
+  MIN_SCALE,
+  POST_DATA_URL,
+  GET_DATA_URL,
+  ALERT_SHOW_TIME,
+  THEN_MESSAGE,
+  CATCH_MESSAGE,
+  SubmitButtonText
 };
