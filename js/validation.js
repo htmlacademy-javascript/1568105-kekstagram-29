@@ -28,7 +28,7 @@ const validateDescription = (value) => checkLength(value, MAX_DESCRIPTION_LENGTH
 pristine.addValidator(
   descriptionField,
   validateDescription,
-  `Длинна описания не должна превышать ${MAX_DESCRIPTION_LENGTH} символов`
+  `Максимальное количество символов: ${MAX_DESCRIPTION_LENGTH}`
 );
 
 // макс количество хештегов
@@ -37,7 +37,7 @@ const validateHashtagsVolume = (value) => getTagsArray(value).length <= MAX_HASH
 pristine.addValidator(
   hashtagsField,
   validateHashtagsVolume,
-  `Количество хештегов не должно превышать ${MAX_HASHTAGS_VOLUME}`,
+  `Максимальное количество хештегов: ${MAX_HASHTAGS_VOLUME}`,
   1, // очерёдность
   true
 );
@@ -51,10 +51,7 @@ const validateHashtag = (value) => {
 pristine.addValidator(
   hashtagsField,
   validateHashtag,
-  `хэш-тег начинается с символа # (решётка);
-  строка после решётки должна состоять из букв и чисел и не может содержать пробелы, спецсимволы (#, @, $ и т. п.), символы пунктуации (тире, дефис, запятая и т. п.), эмодзи и т. д.;
-  хеш-тег не может состоять только из одной решётки;
-  максимальная длина одного хэш-тега 20 символов, включая решётку;`,
+  `Неправильно заполнено поле хештегов`,
   1, // очерёдность
   true
 );
