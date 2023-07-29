@@ -17,14 +17,14 @@ const MAX_DESCRIPTION_LENGTH = 140;
 
 const MAX_HASHTAGS_VOLUME = 5;
 
-const HASHTAG_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i; // Циркумфлекс
+const HASHTAG_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 
 const SCALE_STEP = 25;
 const MAX_SCALE = 100;
 const MIN_SCALE = 25;
 
-const POST_DATA_URL = 'https://28.javascript.pages.academy/kekstagram';
-const GET_DATA_URL = 'https://28.javascript.pages.academy/kekstagram/data';
+const POST_DATA_URL = 'https://29.javascript.pages.academy/kekstagram';
+const GET_DATA_URL = 'https://29.javascript.pages.academy/kekstagram/data';
 
 const THEN_MESSAGE = 'Что то пошло не так';
 const CATCH_MESSAGE = 'Что то пошло совсем не так';
@@ -35,6 +35,10 @@ const SubmitButtonText = {
   IDLE: 'Опубликовать',
   SUBMITTING: 'Публикую...'
 };
+
+const RANDOM_PHOTOS_VALUE = 10;
+
+const RENDER_DELAY = 500;
 
 export {
   PHOTOS,
@@ -57,5 +61,7 @@ export {
   ALERT_SHOW_TIME,
   THEN_MESSAGE,
   CATCH_MESSAGE,
-  SubmitButtonText
+  SubmitButtonText,
+  RANDOM_PHOTOS_VALUE,
+  RENDER_DELAY
 };

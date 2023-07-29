@@ -21,14 +21,14 @@ const renderScale = () => {
     // console.log('scaleMin');
   } else {
     minus.disabled = false;
-  };
+  }
 
   if (scale === MAX_SCALE) {
     plus.disabled = true;
     // console.log('scaleMax');
   } else {
     plus.disabled = false;
-  };
+  }
 };
 
 const onMinusClick = () => {

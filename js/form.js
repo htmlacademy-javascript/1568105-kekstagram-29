@@ -60,22 +60,22 @@ uploadForm.addEventListener('submit', (evt) => {
     disableSubmitButton();
 
     postPhoto(new FormData(evt.target))
-    .then((responce) => {
-      if (responce.ok) {
-        showPopupSuccess();
-        closeModal();
-      } else {
+      .then((responce) => {
+        if (responce.ok) {
+          showPopupSuccess();
+          closeModal();
+        } else {
+          showPopupError();
+          document.removeEventListener('keydown', onEscForm);
+        }
+      })
+      .catch(() => {
         showPopupError();
         document.removeEventListener('keydown', onEscForm);
-      }
-    })
-    .catch(() => {
-      showPopupError();
-      document.removeEventListener('keydown', onEscForm);
-    })
-    .finally(() => {
-      enableSubmitButton();
-    });
+      })
+      .finally(() => {
+        enableSubmitButton();
+      });
   }
 });
 
@@ -101,6 +101,6 @@ function onClickOutside(evt) {
   if (evt.target.classList.contains('img-upload__overlay')) {
     closeModal();
   }
-};
+}
 
 export { onEscForm };

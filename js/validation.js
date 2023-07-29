@@ -20,7 +20,7 @@ const pristine = new Pristine(
   true
 );
 
-const getTagsArray = (value) => value.replace(/ +/g, ' ').trim().toLowerCase().split(' '); // <<<
+const getTagsArray = (value) => value.replace(/ +/g, ' ').trim().toLowerCase().split(' ');
 
 // макс количество символов в описании
 const validateDescription = (value) => checkLength(value, MAX_DESCRIPTION_LENGTH);
@@ -51,7 +51,7 @@ const validateHashtag = (value) => {
 pristine.addValidator(
   hashtagsField,
   validateHashtag,
-  `Неправильно заполнено поле хештегов`,
+  'Неправильно заполнено поле хештегов',
   1, // очерёдность
   true
 );
@@ -69,7 +69,7 @@ pristine.addValidator(
   'Хештеги не должны повторяться',
   1, // очерёдность
   true
-)
+);
 
 const validateForm = () => pristine.validate();
 
