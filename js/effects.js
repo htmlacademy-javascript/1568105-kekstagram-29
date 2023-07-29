@@ -93,7 +93,7 @@ const renderEffect = (effect) => {
 
 sliderElement.noUiSlider.on('update', () => {
   valueElement.value = sliderElement.noUiSlider.get();
-  console.log(valueElement.value);
+  // console.log(valueElement.value);
   renderEffect(document.querySelector('.effects__radio:checked').value);
 });
 

@@ -3,6 +3,15 @@ import { onEscForm } from './form.js';
 const successTemplate = document.querySelector('#success').content.querySelector('.success');
 const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 
+const closePopup = () => {
+  document.querySelector('.popup').remove();
+
+  document.removeEventListener('keydown', onEsc);
+  document.removeEventListener('click', onClickOutside);
+
+  document.addEventListener('keydown', onEscForm);
+};
+
 const showPopupSuccess = () => {
   const successPopupElement = successTemplate.cloneNode(true);
   document.body.append(successPopupElement);
@@ -25,20 +34,11 @@ const showPopupError = () => {
   document.addEventListener('click', onClickOutside);
 };
 
-const closePopup = () => {
-  document.querySelector('.popup').remove();
-
-  document.removeEventListener('keydown', onEsc);
-  document.removeEventListener('click', onClickOutside);
-
-  document.addEventListener('keydown', onEscForm);
-};
-
 function onEsc(evt) {
   if (evt.key === 'Escape') {
     closePopup();
   }
-};
+}
 
 function onClickOutside(evt) {
   if (evt.target.classList.contains('success') || evt.target.classList.contains('error')) {
