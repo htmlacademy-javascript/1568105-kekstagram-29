@@ -24,9 +24,7 @@ const getPhotos = () =>
 
 const postPhoto = (body) =>
   fetch(POST_DATA_URL, {
-    // запрос определяет бэкендер
     method: 'POST',
-    // body: body,
     body,
   });
 
@@ -34,7 +32,3 @@ export {
   postPhoto,
   getPhotos
 };
-
-// для работы с сетью _ вкладка network
-// попали в ветку истины
-// IDLE - google
