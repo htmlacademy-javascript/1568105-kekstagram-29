@@ -1,15 +1,13 @@
-import { onEscForm } from './form.js';
+import { pushFormEsc } from './form.js';
 
 const successTemplate = document.querySelector('#success').content.querySelector('.success');
 const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 
 const closePopup = () => {
   document.querySelector('.popup').remove();
-
-  document.removeEventListener('keydown', onEsc);
+  document.removeEventListener('keydown', pushEsc);
   document.removeEventListener('click', onClickOutside);
-
-  document.addEventListener('keydown', onEscForm);
+  document.addEventListener('keydown', pushFormEsc);
 };
 
 const showPopupSuccess = () => {
@@ -19,7 +17,7 @@ const showPopupSuccess = () => {
 
   const itsCoolButton = document.querySelector('.success__button');
   itsCoolButton.addEventListener('click', closePopup);
-  document.addEventListener('keydown', onEsc);
+  document.addEventListener('keydown', pushEsc);
   document.addEventListener('click', onClickOutside);
 };
 
@@ -30,11 +28,11 @@ const showPopupError = () => {
 
   const tryAgainButton = document.querySelector('.error__button');
   tryAgainButton.addEventListener('click', closePopup);
-  document.addEventListener('keydown', onEsc);
+  document.addEventListener('keydown', pushEsc);
   document.addEventListener('click', onClickOutside);
 };
 
-function onEsc(evt) {
+function pushEsc(evt) {
   if (evt.key === 'Escape') {
     closePopup();
   }

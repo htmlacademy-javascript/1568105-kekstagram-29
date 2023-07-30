@@ -22,7 +22,6 @@ const pristine = new Pristine(
 
 const getTagsArray = (value) => value.replace(/ +/g, ' ').trim().toLowerCase().split(' ');
 
-// макс количество символов в описании
 const validateDescription = (value) => checkLength(value, MAX_DESCRIPTION_LENGTH);
 
 pristine.addValidator(
@@ -31,18 +30,16 @@ pristine.addValidator(
   `Максимальное количество символов: ${MAX_DESCRIPTION_LENGTH}`
 );
 
-// макс количество хештегов
 const validateHashtagsVolume = (value) => getTagsArray(value).length <= MAX_HASHTAGS_VOLUME;
 
 pristine.addValidator(
   hashtagsField,
   validateHashtagsVolume,
   `Максимальное количество хештегов: ${MAX_HASHTAGS_VOLUME}`,
-  1, // очерёдность
+  1,
   true
 );
 
-// правильность заполнения поля хештегов
 const validateHashtag = (value) => {
   const tags = getTagsArray(value);
   return !value.length ? true : !tags.some((tag) => !HASHTAG_SYMBOLS.test(tag));
@@ -52,11 +49,10 @@ pristine.addValidator(
   hashtagsField,
   validateHashtag,
   'Неправильно заполнено поле хештегов',
-  1, // очерёдность
+  1,
   true
 );
 
-// проверка повтора хештега
 const validateUniqueHashtag = (value) => {
   const tags = getTagsArray(value);
   const uniqueTags = [...new Set(tags)];
@@ -67,10 +63,10 @@ pristine.addValidator(
   hashtagsField,
   validateUniqueHashtag,
   'Хештеги не должны повторяться',
-  1, // очерёдность
+  1,
   true
 );
 
 const validateForm = () => pristine.validate();
 
-export { validateForm };
+export { validateForm, pristine };

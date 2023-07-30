@@ -1,4 +1,4 @@
-import { validateForm } from './validation.js';
+import { validateForm, pristine } from './validation.js';
 import { resetScale } from './scale.js';
 import { resetEffects } from './effects.js';
 import { postPhoto } from './api.js';
@@ -18,9 +18,9 @@ const submitButton = document.querySelector('.img-upload__submit');
 
 const renderPreviewImage = () => {
   const fileImage = uploadControl.files[0];
-  uploadModalImage.src = URL.createObjectURL(fileImage); // <<<
+  uploadModalImage.src = URL.createObjectURL(fileImage);
   uploadModalEffectsControlIcons.forEach((icon) => {
-    icon.style.backgroundImage = `url("${URL.createObjectURL(fileImage)}")`; // <<<
+    icon.style.backgroundImage = `url("${URL.createObjectURL(fileImage)}")`;
   });
 };
 
@@ -28,18 +28,22 @@ const showModal = () => {
   uploadModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
   renderPreviewImage();
-  document.addEventListener('keydown', onEscForm);
+  document.addEventListener('keydown', pushFormEsc);
   uploadModal.addEventListener('click', onClickOutside);
   resetScale();
   resetEffects();
+
+  pristine.reset();
 };
 
 const closeModal = () => {
   uploadModal.classList.add('hidden');
   document.body.classList.remove('modal-open');
   uploadForm.reset();
-  document.removeEventListener('keydown', onEscForm);
+  document.removeEventListener('keydown', pushFormEsc);
   uploadModal.removeEventListener('click', onClickOutside);
+
+  pristine.reset();
 };
 
 const disableSubmitButton = () => {
@@ -66,12 +70,12 @@ uploadForm.addEventListener('submit', (evt) => {
           closeModal();
         } else {
           showPopupError();
-          document.removeEventListener('keydown', onEscForm);
+          document.removeEventListener('keydown', pushFormEsc);
         }
       })
       .catch(() => {
         showPopupError();
-        document.removeEventListener('keydown', onEscForm);
+        document.removeEventListener('keydown', pushFormEsc);
       })
       .finally(() => {
         enableSubmitButton();
@@ -87,7 +91,7 @@ uploadModalCancel.addEventListener('click', () => {
   closeModal();
 });
 
-function onEscForm(evt) {
+function pushFormEsc(evt) {
   const isFocusedInput = evt.target.classList.contains('text__hashtags') || evt.target.classList.contains('text__description');
   if (isFocusedInput) {
     return false;
@@ -103,4 +107,4 @@ function onClickOutside(evt) {
   }
 }
 
-export { onEscForm };
+export { pushFormEsc };
