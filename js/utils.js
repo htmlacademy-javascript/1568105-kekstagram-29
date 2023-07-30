@@ -1,6 +1,5 @@
 import { ALERT_SHOW_TIME } from './constants.js';
 
-// генерация случайного числа
 const getRandomInteger = (min, max) => {
   const lower = Math.ceil(Math.min(min, max));
   const upper = Math.floor(Math.max(min, max));
@@ -8,7 +7,6 @@ const getRandomInteger = (min, max) => {
   return Math.floor(result);
 };
 
-// генерация случайного числа с контролем (без) повторений
 const createRandomIdFromRangeGenerator = (min, max) => {
   const previousValues = [];
 
@@ -54,20 +52,11 @@ const showAlert = (message) => {
 const checkLength = (str, lettersLimit) => str.length <= lettersLimit;
 
 const debounce = (callback, timeoutDelay = 500) => {
-  // Используем замыкания, чтобы id таймаута у нас навсегда приклеился
-  // к возвращаемой функции с setTimeout, тогда мы его сможем перезаписывать
   let timeoutId;
 
   return (...rest) => {
-    // Перед каждым новым вызовом удаляем предыдущий таймаут,
-    // чтобы они не накапливались
     clearTimeout(timeoutId);
-
-    // Затем устанавливаем новый таймаут с вызовом колбэка на ту же задержку
     timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
-
-    // Таким образом цикл «поставить таймаут - удалить таймаут» будет выполняться,
-    // пока действие совершается чаще, чем переданная задержка timeoutDelay
   };
 };
 

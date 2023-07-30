@@ -2,7 +2,7 @@ import {
   SCALE_STEP,
   MAX_SCALE,
   MIN_SCALE
-} from './constants.js'; // проверить кавычки
+} from './constants.js';
 
 const minus = document.querySelector('.scale__control--smaller');
 const plus = document.querySelector('.scale__control--bigger');
@@ -15,38 +15,33 @@ const renderScale = () => {
   scaleControl.value = `${scale}%`;
   previewImage.style = `transform: scale(${scale * 0.01})`;
 
-  // добавить disabled на кнопку при MIN_SCALE
   if (scale === MIN_SCALE) {
     minus.disabled = true;
-    // console.log('scaleMin');
   } else {
     minus.disabled = false;
   }
 
   if (scale === MAX_SCALE) {
     plus.disabled = true;
-    // console.log('scaleMax');
   } else {
     plus.disabled = false;
   }
 };
 
-const onMinusClick = () => {
+const clickOnMinus = () => {
   scale = scale - SCALE_STEP >= MIN_SCALE ? scale - SCALE_STEP : MIN_SCALE;
 
   renderScale();
 };
 
-const onPlusClick = () => {
+const clickOnPlus = () => {
   scale = scale + SCALE_STEP <= MAX_SCALE ? scale + SCALE_STEP : MAX_SCALE;
 
   renderScale();
 };
 
-// проверить валидацию: поле хештега может быть пустым
-
-minus.addEventListener('click', onMinusClick);
-plus.addEventListener('click', onPlusClick);
+minus.addEventListener('click', clickOnMinus);
+plus.addEventListener('click', clickOnPlus);
 
 const resetScale = () => {
   scale = MAX_SCALE;

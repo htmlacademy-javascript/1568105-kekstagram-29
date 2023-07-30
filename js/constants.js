@@ -23,7 +23,7 @@ const SCALE_STEP = 25;
 const MAX_SCALE = 100;
 const MIN_SCALE = 25;
 
-const POST_DATA_URL = 'https://29.javascript.pages.academy/kekstagram';
+const POST_DATA_URL = 'https://29.javascript.pages.academy/kekstagram1';
 const GET_DATA_URL = 'https://29.javascript.pages.academy/kekstagram/data';
 
 const THEN_MESSAGE = 'Что то пошло не так';

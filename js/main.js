@@ -4,6 +4,5 @@ import { setFilters } from './filter.js';
 import './form.js';
 getPhotos()
   .then((photos) => {
-
     setFilters(photos);
   });
